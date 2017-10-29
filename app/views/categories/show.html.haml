@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name c:
+  = @category.name_c
+%p
+  %b Full name c:
+  = @category.full_name_c
+%p
+  %b D vocation c:
+  = @category.d_vocation_c
+
+= link_to 'Edit', edit_category_path(@category)
+\|
+= link_to 'Back', categories_path

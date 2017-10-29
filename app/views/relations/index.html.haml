@@ -1,0 +1,25 @@
+%h1 Listing relations
+
+%table
+  %thead
+    %tr
+      %th D vocation pu
+      %th Post
+      %th Unit
+      %th
+      %th
+      %th
+
+  %tbody
+    - @relations.each do |relation|
+      %tr
+        %td= relation.d_vocation_pu
+        %td= relation.post
+        %td= relation.unit
+        %td= link_to 'Show', relation
+        %td= link_to 'Edit', edit_relation_path(relation)
+        %td= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Relation', new_relation_path

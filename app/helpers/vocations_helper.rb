@@ -1,0 +1,2 @@
+module VocationsHelper
+end

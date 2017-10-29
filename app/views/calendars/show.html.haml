@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Date c:
+  = @calendar.date_c
+%p
+  %b Is output:
+  = @calendar.is_output
+%p
+  %b Year c:
+  = @calendar.year_c
+
+= link_to 'Edit', edit_calendar_path(@calendar)
+\|
+= link_to 'Back', calendars_path

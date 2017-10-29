@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_v: 1
+  d_conclusion_v: 2017-10-13
+  d_expiration_v: 2017-10-13
+  is_real: false
+  order_date: 2017-10-13
+  order_number: MyText
+  contract: one
+
+two:
+  type_v: 1
+  d_conclusion_v: 2017-10-13
+  d_expiration_v: 2017-10-13
+  is_real: false
+  order_date: 2017-10-13
+  order_number: MyText
+  contract: two

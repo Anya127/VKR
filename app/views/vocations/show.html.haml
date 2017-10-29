@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Type v:
+  = @vocation.type_v
+%p
+  %b D conclusion v:
+  = @vocation.d_conclusion_v
+%p
+  %b D expiration v:
+  = @vocation.d_expiration_v
+%p
+  %b Is real:
+  = @vocation.is_real
+%p
+  %b Order date:
+  = @vocation.order_date
+%p
+  %b Order number:
+  = @vocation.order_number
+%p
+  %b Contract:
+  = @vocation.contract
+
+= link_to 'Edit', edit_vocation_path(@vocation)
+\|
+= link_to 'Back', vocations_path

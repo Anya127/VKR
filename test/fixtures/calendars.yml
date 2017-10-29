@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_c: 2017-10-21
+  is_output: false
+  year_c: 1
+
+two:
+  date_c: 2017-10-21
+  is_output: false
+  year_c: 1

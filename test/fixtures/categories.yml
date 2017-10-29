@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_c: MyText
+  full_name_c: MyText
+  d_vocation_c: MyText
+
+two:
+  name_c: MyText
+  full_name_c: MyText
+  d_vocation_c: MyText

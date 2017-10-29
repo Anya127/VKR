@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b D vocation pu:
+  = @relation.d_vocation_pu
+%p
+  %b Post:
+  = @relation.post
+%p
+  %b Unit:
+  = @relation.unit
+
+= link_to 'Edit', edit_relation_path(@relation)
+\|
+= link_to 'Back', relations_path

@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Number c:
+  = @contract.number_c
+%p
+  %b D conclusion c:
+  = @contract.d_conclusion_c
+%p
+  %b D expiration c:
+  = @contract.d_expiration_c
+%p
+  %b Stavka:
+  = @contract.stavka
+%p
+  %b Vocation c:
+  = @contract.vocation_c
+%p
+  %b Special conditions:
+  = @contract.special_conditions
+%p
+  %b Worker:
+  = @contract.worker
+%p
+  %b Relation:
+  = @contract.relation
+
+= link_to 'Edit', edit_contract_path(@contract)
+\|
+= link_to 'Back', contracts_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name u:
+  = @unit.name_u
+%p
+  %b Full name u:
+  = @unit.full_name_u
+%p
+  %b Unit:
+  = @unit.unit
+
+= link_to 'Edit', edit_unit_path(@unit)
+\|
+= link_to 'Back', units_path

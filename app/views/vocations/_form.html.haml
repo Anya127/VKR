@@ -1,0 +1,31 @@
+= form_for @vocation do |f|
+  - if @vocation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vocation.errors.count, "error")} prohibited this vocation from being saved:"
+      %ul
+        - @vocation.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :type_v
+    = f.number_field :type_v
+  .field
+    = f.label :d_conclusion_v
+    = f.date_select :d_conclusion_v
+  .field
+    = f.label :d_expiration_v
+    = f.date_select :d_expiration_v
+  .field
+    = f.label :is_real
+    = f.check_box :is_real
+  .field
+    = f.label :order_date
+    = f.date_select :order_date
+  .field
+    = f.label :order_number
+    = f.text_area :order_number
+  .field
+    = f.label :contract
+    = f.text_field :contract
+  .actions
+    = f.submit 'Save'

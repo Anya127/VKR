@@ -1,0 +1,33 @@
+%h1 Listing vocations
+
+%table
+  %thead
+    %tr
+      %th Type v
+      %th D conclusion v
+      %th D expiration v
+      %th Is real
+      %th Order date
+      %th Order number
+      %th Contract
+      %th
+      %th
+      %th
+
+  %tbody
+    - @vocations.each do |vocation|
+      %tr
+        %td= vocation.type_v
+        %td= vocation.d_conclusion_v
+        %td= vocation.d_expiration_v
+        %td= vocation.is_real
+        %td= vocation.order_date
+        %td= vocation.order_number
+        %td= vocation.contract
+        %td= link_to 'Show', vocation
+        %td= link_to 'Edit', edit_vocation_path(vocation)
+        %td= link_to 'Destroy', vocation, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Vocation', new_vocation_path

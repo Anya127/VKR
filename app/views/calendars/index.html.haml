@@ -1,0 +1,45 @@
+-# %h1 Listing calendars
+-#
+-# %br
+-#
+-# .row
+-# - @hash.each do |month, days|
+-#   .col-md-3
+-#     - days.each do |day|
+-#       = link_to(day.date_c.day, day, class: 'btn')
+-#
+-# = link_to 'New Calendar', new_calendar_path
+-#
+
+
+%h1 Listing calendars
+%br
+- @hash.each do |month, days|
+  .box450.my_vertical_align
+    %div
+      =month
+      -flag = 1
+    %div
+      - day = days.first
+      -if (flag== 1)
+        -(flag=0)
+        -case (wdayy = day.date_c.wday)
+        -when 0
+          -6.times do
+            %span.box50
+        -when 1..6
+          -(wdayy-1).times do
+            %span.box50
+      - days.each do |day|
+
+
+        -# =raise (day.date_c.wday).to_s
+        %span.box50
+          - if day.date_c.wday == 0 or day.date_c.wday == 6
+            = link_to(day.date_c.day, day, class: 'btn weekends_color')
+          - else
+            = link_to(day.date_c.day, day, class: 'btn')
+        - if day.date_c.wday == 0
+          %br
+
+= link_to 'New Calendar', new_calendar_path

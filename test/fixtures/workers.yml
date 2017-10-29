@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  l_name: MyText
+  f_name: MyText
+  s_name: MyText
+  inn: MyText
+  passport: MyText
+  snils: MyText
+  d_bday: 2017-10-13
+
+two:
+  l_name: MyText
+  f_name: MyText
+  s_name: MyText
+  inn: MyText
+  passport: MyText
+  snils: MyText
+  d_bday: 2017-10-13

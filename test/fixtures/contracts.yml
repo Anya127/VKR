@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_c: MyText
+  d_conclusion_c: 2017-10-13
+  d_expiration_c: 2017-10-13
+  stavka: 1.5
+  vocation_c: MyText
+  special_conditions: MyText
+  worker: one
+  relation: one
+
+two:
+  number_c: MyText
+  d_conclusion_c: 2017-10-13
+  d_expiration_c: 2017-10-13
+  stavka: 1.5
+  vocation_c: MyText
+  special_conditions: MyText
+  worker: two
+  relation: two

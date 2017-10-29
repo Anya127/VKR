@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  d_vocation_pu: MyText
+  post: one
+  unit: one
+
+two:
+  d_vocation_pu: MyText
+  post: two
+  unit: two
