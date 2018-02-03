@@ -6,14 +6,25 @@
         - @relation.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :d_vocation_pu
-    = f.text_area :d_vocation_pu
-  .field
-    = f.label :post
-    = f.text_field :post
-  .field
-    = f.label :unit
-    = f.text_field :unit
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Количество дней отпуска"
+        = f.text_area :d_vocation_pu, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Должность"
+      = f.text_field :post, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Подразделение"
+      = f.text_field :unit, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', relations_path, class: "btn btn-success"

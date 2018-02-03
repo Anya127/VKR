@@ -6,29 +6,50 @@
         - @contract.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :number_c
-    = f.text_area :number_c
-  .field
-    = f.label :d_conclusion_c
-    = f.date_select :d_conclusion_c
-  .field
-    = f.label :d_expiration_c
-    = f.date_select :d_expiration_c
-  .field
-    = f.label :stavka
-    = f.text_field :stavka
-  .field
-    = f.label :vocation_c
-    = f.text_area :vocation_c
-  .field
-    = f.label :special_conditions
-    = f.text_area :special_conditions
-  .field
-    = f.label :worker
-    = f.text_field :worker
-  .field
-    = f.label :relation
-    = f.text_field :relation
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Номер договора"
+        = f.text_area :number_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Дата заключения"
+      = f.date_select :d_conclusion_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Дата окончания"
+        = f.date_select :d_expiration_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Ставка"
+      = f.text_field :stavka, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Количество дней отпуска"
+      = f.text_area :vocation_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Специальные условия"
+      = f.text_area :special_conditions, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Работник"
+      = f.text_field :worker_id, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Связь"
+      = f.text_field :relation_id, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', contracts_path, class: "btn btn-success"

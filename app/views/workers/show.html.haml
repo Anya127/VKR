@@ -1,27 +1,27 @@
 %p#notice= notice
 
 %p
-  %b L name:
+  %b Фамилия:
   = @worker.l_name
 %p
-  %b F name:
+  %b Имя:
   = @worker.f_name
 %p
-  %b S name:
+  %b Отчество:
   = @worker.s_name
 %p
-  %b Inn:
+  %b ИНН:
   = @worker.inn
 %p
-  %b Passport:
+  %b Серия и номер паспорта:
   = @worker.passport
 %p
-  %b Snils:
+  %b СНИЛС:
   = @worker.snils
 %p
-  %b D bday:
+  %b Дата Рождения:
   = @worker.d_bday
 
-= link_to 'Edit', edit_worker_path(@worker)
+= link_to 'Редактирование', edit_worker_path(@worker), class: "btn btn-default"
 \|
-= link_to 'Back', workers_path
+= link_to 'Назад', workers_path,   class: "btn btn-warning"

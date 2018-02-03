@@ -1,45 +1,44 @@
--# %h1 Listing calendars
--#
--# %br
--#
--# .row
--# - @hash.each do |month, days|
--#   .col-md-3
--#     - days.each do |day|
--#       = link_to(day.date_c.day, day, class: 'btn')
--#
--# = link_to 'New Calendar', new_calendar_path
--#
+= form_tag index_commit_calendars_path() do
+  %h1
+    Производственный календарь
+    .pull-right
+      = submit_tag 'Сохранить', class: 'btn btn-primary btn-lg'
+    .clearfix
+  %br
+  - @hash.each do |month, days|
+    .box450.my_vertical_align
+      %div
+        = month_names[month]
+        -flag = 1
+      %div
+        - day = days.first
+        -if (flag== 1)
+          -(flag=0)
+          -case (wdayy = day.date_c.wday)
+          -when 0
+            -6.times do
+              %span.box50.cal-field-empty
+          -when 1..6
+            -(wdayy-1).times do
+              %span.box50.cal-field-empty
+        - days.each do |day|
+          %span.box50.buttons-hover.cal-field
+            - if day.is_output == true
+              = link_to(day.date_c.day, day, class: 'btn weekends_color day_btn')
+              =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
+            - else
+              = link_to(day.date_c.day, day, class: 'btn day_btn')
+              =hidden_field_tag "day[#{day.id}]", 0,  class: 'day_hid'
+          - if day.date_c.wday == 0
+            %br
 
-
-%h1 Listing calendars
-%br
-- @hash.each do |month, days|
-  .box450.my_vertical_align
-    %div
-      =month
-      -flag = 1
-    %div
-      - day = days.first
-      -if (flag== 1)
-        -(flag=0)
-        -case (wdayy = day.date_c.wday)
-        -when 0
-          -6.times do
-            %span.box50
-        -when 1..6
-          -(wdayy-1).times do
-            %span.box50
-      - days.each do |day|
-
-
-        -# =raise (day.date_c.wday).to_s
-        %span.box50
-          - if day.date_c.wday == 0 or day.date_c.wday == 6
-            = link_to(day.date_c.day, day, class: 'btn weekends_color')
-          - else
-            = link_to(day.date_c.day, day, class: 'btn')
-        - if day.date_c.wday == 0
-          %br
-
-= link_to 'New Calendar', new_calendar_path
+          -# =raise (day.date_c.wday).to_s
+          -# %span.box50.buttons-hover
+          -#   - if day.date_c.wday == 0 or day.date_c.wday == 6
+          -#     = link_to(day.date_c.day, day, class: 'btn weekends_color day_btn')
+          -#     =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
+          -#   - else
+          -#     = link_to(day.date_c.day, day, class: 'btn day_btn')
+          -#     =hidden_field_tag "day[#{day.id}]", 0,  class: 'day_hid'
+          -# - if day.date_c.wday == 0
+            %br

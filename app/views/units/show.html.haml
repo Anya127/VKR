@@ -1,15 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Name u:
+  %b Краткое наименование подразделения:
   = @unit.name_u
 %p
-  %b Full name u:
+  %b Полное наименование подразделения:
   = @unit.full_name_u
 %p
-  %b Unit:
+  %b Подразделение:
   = @unit.unit
 
-= link_to 'Edit', edit_unit_path(@unit)
+= link_to 'Редактирование', edit_unit_path(@unit), class: "btn btn-default"
 \|
-= link_to 'Back', units_path
+= link_to 'Назад', units_path,   class: "btn btn-warning"

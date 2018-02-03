@@ -1,15 +1,17 @@
-%h1 Listing vocations
+%h1 Отпуска
 
-%table
+= link_to 'Добавить связь', new_vocation_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th Type v
-      %th D conclusion v
-      %th D expiration v
-      %th Is real
+      %th Тип отпуска
+      %th Дата начала
+      %th Дата окончания
+      %th Соответствует предварительному графику?
       %th Order date
       %th Order number
-      %th Contract
+      %th Контракт
       %th
       %th
       %th
@@ -24,10 +26,8 @@
         %td= vocation.order_date
         %td= vocation.order_number
         %td= vocation.contract
-        %td= link_to 'Show', vocation
-        %td= link_to 'Edit', edit_vocation_path(vocation)
-        %td= link_to 'Destroy', vocation, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', vocation, class: "btn btn-warning"
+        %td= link_to 'Редактирование', edit_vocation_path(vocation), class: "btn btn-default "
+        %td= link_to 'Удалить', vocation, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Vocation', new_vocation_path

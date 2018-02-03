@@ -134,9 +134,11 @@ ActiveRecord::Schema.define(version: 20171021174622) do
     t.text     "passport",   null: false
     t.text     "snils",      null: false
     t.date     "d_bday",     null: false
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["inn", "snils", "passport"], name: "index_workers_on_inn_and_snils_and_passport", unique: true, using: :btree
+    t.index ["user_id"], name: "index_workers_on_user_id", using: :btree
   end
 
   add_foreign_key "contracts", "relations"
@@ -148,4 +150,5 @@ ActiveRecord::Schema.define(version: 20171021174622) do
   add_foreign_key "role_users", "users"
   add_foreign_key "units", "units"
   add_foreign_key "vocations", "contracts"
+  add_foreign_key "workers", "users"
 end

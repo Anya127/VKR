@@ -1,15 +1,17 @@
-%h1 Listing workers
+%h1 Сотрудники
 
-%table
+= link_to 'Добавить сотрудника', new_worker_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th L name
-      %th F name
-      %th S name
-      %th Inn
-      %th Passport
-      %th Snils
-      %th D bday
+      %th Фамилия
+      %th Имя
+      %th Отчество
+      %th ИНН
+      %th Серия и номер паспорта
+      %th СНИЛС
+      %th Дата Рождения
       %th
       %th
       %th
@@ -24,10 +26,8 @@
         %td= worker.passport
         %td= worker.snils
         %td= worker.d_bday
-        %td= link_to 'Show', worker
-        %td= link_to 'Edit', edit_worker_path(worker)
-        %td= link_to 'Destroy', worker, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', worker, class: "btn btn-warning"
+        %td= link_to 'Редактировать', edit_worker_path(worker), class: "btn btn-default "
+        %td= link_to 'Удалить', worker, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Worker', new_worker_path

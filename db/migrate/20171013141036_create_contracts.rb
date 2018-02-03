@@ -9,7 +9,7 @@ class CreateContracts < ActiveRecord::Migration[5.0]
       t.text :special_conditions
       t.references :worker, foreign_key: true
       t.references :relation, foreign_key: true
-      t.index [:number_c, :d_conclusion_c], unique: true 
+      t.index [:number_c, :d_conclusion_c], unique: true
 
       t.timestamps
     end

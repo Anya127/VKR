@@ -8,7 +8,8 @@ class CreateWorkers < ActiveRecord::Migration[5.0]
       t.text :passport, null: false
       t.text :snils, null: false
       t.date :d_bday, null: false
-      t.index [:inn, :snils, :passport], unique: true 
+      t.references :user, foreign_key: true
+      t.index [:inn, :snils, :passport], unique: true
       t.timestamps
     end
   end

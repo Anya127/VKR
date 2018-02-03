@@ -1,15 +1,15 @@
 %p#notice= notice
 
 %p
-  %b D vocation pu:
+  %b Количество дней отпуска:
   = @relation.d_vocation_pu
 %p
-  %b Post:
+  %b Должность:
   = @relation.post
 %p
-  %b Unit:
+  %b Подразделение:
   = @relation.unit
 
-= link_to 'Edit', edit_relation_path(@relation)
+= link_to 'Редактирование', edit_relation_path(@relation), class: "btn btn-default"
 \|
-= link_to 'Back', relations_path
+= link_to 'Назад', relations_path,   class: "btn btn-warning"

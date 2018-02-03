@@ -1,11 +1,13 @@
-%h1 Listing units
+%h1 Подразделения
 
-%table
+= link_to 'Добавить подразделение', new_unit_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th Name u
-      %th Full name u
-      %th Unit
+      %th Краткое наименование подразделения
+      %th Полное наименование подразделения
+      %th Подразделение
       %th
       %th
       %th
@@ -16,10 +18,8 @@
         %td= unit.name_u
         %td= unit.full_name_u
         %td= unit.unit
-        %td= link_to 'Show', unit
-        %td= link_to 'Edit', edit_unit_path(unit)
-        %td= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', unit, class: "btn btn-warning"
+        %td= link_to 'Редактировать', edit_unit_path(unit), class: "btn btn-default "
+        %td= link_to 'Удалить', unit, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Unit', new_unit_path

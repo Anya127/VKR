@@ -28,7 +28,7 @@ class ContractsController < ApplicationController
 
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
+        format.html { redirect_to @contract, notice: 'Договор успешно создан.' }
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ContractsController < ApplicationController
   def update
     respond_to do |format|
       if @contract.update(contract_params)
-        format.html { redirect_to @contract, notice: 'Contract was successfully updated.' }
+        format.html { redirect_to @contract, notice: 'Договор успешно отредактирован.' }
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ContractsController < ApplicationController
   def destroy
     @contract.destroy
     respond_to do |format|
-      format.html { redirect_to contracts_url, notice: 'Contract was successfully destroyed.' }
+      format.html { redirect_to contracts_url, notice: 'Договор успешно удален.' }
       format.json { head :no_content }
     end
   end

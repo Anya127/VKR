@@ -1,0 +1,20 @@
+ru:
+  app:
+    name: Информационная система расчета отпуcков
+    company:
+      short_name:  МПУ
+      department: Кафедра "Прикладная информатика"
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:

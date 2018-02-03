@@ -1,16 +1,18 @@
-%h1 Listing contracts
+%h1 Договоры
 
-%table
+= link_to 'Добавить договор',  new_contract_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th Number c
-      %th D conclusion c
-      %th D expiration c
-      %th Stavka
-      %th Vocation c
-      %th Special conditions
-      %th Worker
-      %th Relation
+      %th Номер договора
+      %th Дата заключения
+      %th Дата окончания
+      %th Ставка
+      %th Количество дней отпуска
+      %th Специальные условия
+      %th Работник
+      %th Связь
       %th
       %th
       %th
@@ -24,12 +26,13 @@
         %td= contract.stavka
         %td= contract.vocation_c
         %td= contract.special_conditions
-        %td= contract.worker
+        %td
+          = contract.worker.try(:l_name)
+          = contract.worker.try(:f_name)
+          = contract.worker.try(:s_name)
         %td= contract.relation
-        %td= link_to 'Show', contract
-        %td= link_to 'Edit', edit_contract_path(contract)
-        %td= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', contract, class: "btn btn-warning"
+        %td= link_to 'Редактировать', edit_contract_path(contract), class: "btn btn-default "
+        %td= link_to 'Удалить', contract, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Contract', new_contract_path

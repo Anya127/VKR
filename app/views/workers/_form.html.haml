@@ -6,26 +6,45 @@
         - @worker.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :l_name
-    = f.text_area :l_name
-  .field
-    = f.label :f_name
-    = f.text_area :f_name
-  .field
-    = f.label :s_name
-    = f.text_area :s_name
-  .field
-    = f.label :inn
-    = f.text_area :inn
-  .field
-    = f.label :passport
-    = f.text_area :passport
-  .field
-    = f.label :snils
-    = f.text_area :snils
-  .field
-    = f.label :d_bday
-    = f.date_select :d_bday
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Фамилия"
+        = f.text_area :l_name, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Имя"
+      = f.text_area :f_name, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Отчество"
+      = f.text_area :s_name, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"ИНН"
+        = f.text_area :inn, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Серия и номер паспорта"
+      = f.text_area :passport, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"СНИЛС"
+      = f.text_area :snils, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Дата Рождения"
+      = f.date_select :d_bday, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', workers_path, class: "btn btn-success"

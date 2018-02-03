@@ -1,16 +1,16 @@
 %p#notice= notice
 
 %p
-  %b Type v:
+  %b Тип отпуска:
   = @vocation.type_v
 %p
-  %b D conclusion v:
+  %b Дата начала:
   = @vocation.d_conclusion_v
 %p
-  %b D expiration v:
+  %b Дата окончания:
   = @vocation.d_expiration_v
 %p
-  %b Is real:
+  %b Соответствует предварительному графику?:
   = @vocation.is_real
 %p
   %b Order date:
@@ -19,9 +19,9 @@
   %b Order number:
   = @vocation.order_number
 %p
-  %b Contract:
+  %b Контракт:
   = @vocation.contract
 
-= link_to 'Edit', edit_vocation_path(@vocation)
+= link_to 'Редактирование', edit_vocation_path(@vocation), class: "btn btn-default"
 \|
-= link_to 'Back', vocations_path
+= link_to 'Назад', vocations_path,   class: "btn btn-warning"

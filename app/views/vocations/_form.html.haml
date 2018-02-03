@@ -5,27 +5,47 @@
       %ul
         - @vocation.errors.full_messages.each do |message|
           %li= message
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Тип отпуска"
+        = f.number_field :type_v, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Дата начала"
+      = f.date_select :d_conclusion_v, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Дата окончания"
+      = f.date_select :d_expiration_v, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Соответствует предварительному графику?"
+        = f.check_box :is_real, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"order_date"
+      = f.date_select :order_date, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"order_number"
+      = f.text_area :order_number, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Контракт"
+      = f.text_field :contract, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', vocations_path, class: "btn btn-success"
 
-  .field
-    = f.label :type_v
-    = f.number_field :type_v
-  .field
-    = f.label :d_conclusion_v
-    = f.date_select :d_conclusion_v
-  .field
-    = f.label :d_expiration_v
-    = f.date_select :d_expiration_v
-  .field
-    = f.label :is_real
-    = f.check_box :is_real
-  .field
-    = f.label :order_date
-    = f.date_select :order_date
-  .field
-    = f.label :order_number
-    = f.text_area :order_number
-  .field
-    = f.label :contract
-    = f.text_field :contract
-  .actions
-    = f.submit 'Save'
+  

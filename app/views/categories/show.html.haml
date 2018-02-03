@@ -1,15 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Name c:
+  %b Краткое наименование категории:
   = @category.name_c
 %p
-  %b Full name c:
+  %b Полное наименование категории:
   = @category.full_name_c
 %p
-  %b D vocation c:
+  %b Количество дней отпуска:
   = @category.d_vocation_c
 
-= link_to 'Edit', edit_category_path(@category)
+= link_to 'Редактирование', edit_category_path(@category), class: "btn btn-default"
 \|
-= link_to 'Back', categories_path
+= link_to 'Назад', categories_path,   class: "btn btn-warning"

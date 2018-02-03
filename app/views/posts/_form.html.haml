@@ -6,14 +6,25 @@
         - @post.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :name_p
-    = f.text_area :name_p
-  .field
-    = f.label :full_name_p
-    = f.text_area :full_name_p
-  .field
-    = f.label :category
-    = f.text_field :category
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Краткое наименование должности"
+        = f.text_area :name_p, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Полное наименование должности"
+      = f.text_area :full_name_p, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Категория"
+      = f.text_field :category, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', posts_path, class: "btn btn-success"

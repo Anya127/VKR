@@ -1,6 +1,7 @@
 class Worker < ApplicationRecord
   has_many :contracts
-
+  belongs_to :user
+  
   validates :l_name, presence: true
   validates :f_name, presence: true
   validates :inn,  length: { minimum: 12 }

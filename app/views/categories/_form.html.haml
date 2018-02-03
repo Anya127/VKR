@@ -6,14 +6,25 @@
         - @category.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :name_c
-    = f.text_area :name_c
-  .field
-    = f.label :full_name_c
-    = f.text_area :full_name_c
-  .field
-    = f.label :d_vocation_c
-    = f.text_area :d_vocation_c
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :"Краткое наименование категории"
+        = f.text_area :name_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Полное наименование категории"
+      = f.text_area :full_name_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+      = f.label :"Количество дней отпуска"
+      = f.text_area :d_vocation_c, class: "form-control"
+  .row
+    .col-md-6
+      .form-group
+  .form-actions
+    = f.submit 'Сохранить', class: "btn btn-success"
+    \|
+    = link_to 'Назад', categories_path, class: "btn btn-success"

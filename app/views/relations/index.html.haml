@@ -1,11 +1,13 @@
-%h1 Listing relations
+%h1 Связь Подразделение/Должность
 
-%table
+= link_to 'Добавить связь', new_relation_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th D vocation pu
-      %th Post
-      %th Unit
+      %th Количество дней отпуска
+      %th Должность
+      %th Подразделение
       %th
       %th
       %th
@@ -16,10 +18,8 @@
         %td= relation.d_vocation_pu
         %td= relation.post
         %td= relation.unit
-        %td= link_to 'Show', relation
-        %td= link_to 'Edit', edit_relation_path(relation)
-        %td= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', relation, class: "btn btn-warning"
+        %td= link_to 'Редактирование', edit_relation_path(relation), class: "btn btn-default "
+        %td= link_to 'Удалить', relation, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Relation', new_relation_path

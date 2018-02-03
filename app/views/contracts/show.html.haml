@@ -1,30 +1,30 @@
 %p#notice= notice
 
 %p
-  %b Number c:
+  %b Номер договора:
   = @contract.number_c
 %p
-  %b D conclusion c:
+  %b Дата заключения:
   = @contract.d_conclusion_c
 %p
-  %b D expiration c:
+  %b Дата окончания:
   = @contract.d_expiration_c
 %p
-  %b Stavka:
+  %b Ставка:
   = @contract.stavka
 %p
-  %b Vocation c:
+  %b Количество дней отпуска:
   = @contract.vocation_c
 %p
-  %b Special conditions:
+  %b Специальные условия:
   = @contract.special_conditions
 %p
-  %b Worker:
+  %b Работник:
   = @contract.worker
 %p
-  %b Relation:
+  %b Связь:
   = @contract.relation
 
-= link_to 'Edit', edit_contract_path(@contract)
+= link_to 'Редактирование', edit_contract_path(@contract), class: "btn btn-default"
 \|
-= link_to 'Back', contracts_path
+= link_to 'Назад', contracts_path,  class: "btn btn-warning"

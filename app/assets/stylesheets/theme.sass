@@ -1,8 +1,73 @@
+$body-bg: #FFFAFA
+
+$navbar-default-bg: #fff
+$navbar-default-link-color: #333
+$navbar-margin-bottom: 0
+$navbar-inverse-bg: #ffb330// #778899
+$navbar-inverse-link-color: lighten(#333, 90%)
+$navbar-inverse-link-hover-color: #fff
+$navbar-inverse-link-active-color: $navbar-inverse-link-color
+$navbar-inverse-link-hover-bg: darken($navbar-inverse-bg, 5%)
+$navbar-inverse-toggle-hover-bg: $navbar-inverse-link-hover-bg
+$navbar-inverse-toggle-border-color: $navbar-inverse-bg
+$dropdown-border: $navbar-inverse-bg
+$dropdown-link-color: $navbar-inverse-link-color
+$dropdown-link-hover-color: $navbar-inverse-link-hover-color
+$dropdown-link-hover-bg: $navbar-inverse-link-hover-bg
+$dropdown-link-active-color: $navbar-inverse-link-color
+$dropdown-link-active-bg: $navbar-inverse-bg
+$dropdown-fallback-border: $navbar-inverse-bg
+
+$navbar-height: 56px
+$font-size-base: 16px
+$border-radius-base: 0
+$border-radius-small: 0
+$border-radius-large: 0
+$breadcrumb-padding-horizontal: 0
+
+$breadcrumb-separator: '❮'
+$breadcrumb-bg: $body-bg
+
+$dark-blue: darken($navbar-inverse-bg, 90%)
+$light_blue: lighten($navbar-inverse-bg, 40%)
+$nav-tabs-border-color: $dark-blue
+$nav-tabs-link-hover-border-color: $dark-blue
+$nav-tabs-active-link-hover-border-color: $dark-blue
+
+$btn-default-bg: #c2c2c2
+
+
+$brand-purple: #727cb6
+
+$text-muted: #999
+$text-yellow: #EEEE00
+
+
+
 @import bootstrap-sprockets
 @import bootstrap
-@import bootstrap-select
+
 @import font-awesome
+
+@import bootstrap-select
 @import fonts
+
+
+@import sidebar
+@import main
+@import navbar
+@import bootstrap-datetimepicker
+@import welcome
+
+
+
+
+
+
+
+
+
+
 
 .box50
   width: 50px
@@ -12,7 +77,14 @@
   width: 450px
   display: inline-block
 .my_vertical_align
-  vertical-align: top
+  vertical-align: text-top
 
 .weekends_color
   background: #FF0000
+  table-layout: fixed
+  width: 100%
+
+.vocations_color
+    background: #00FF00 !important
+    table-layout: fixed
+    width: 100%

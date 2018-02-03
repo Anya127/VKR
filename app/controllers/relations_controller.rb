@@ -28,7 +28,7 @@ class RelationsController < ApplicationController
 
     respond_to do |format|
       if @relation.save
-        format.html { redirect_to @relation, notice: 'Relation was successfully created.' }
+        format.html { redirect_to @relation, notice: 'Свяхь успешно создана.' }
         format.json { render :show, status: :created, location: @relation }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RelationsController < ApplicationController
   def update
     respond_to do |format|
       if @relation.update(relation_params)
-        format.html { redirect_to @relation, notice: 'Relation was successfully updated.' }
+        format.html { redirect_to @relation, notice: 'Связь успешно отредактирована.' }
         format.json { render :show, status: :ok, location: @relation }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RelationsController < ApplicationController
   def destroy
     @relation.destroy
     respond_to do |format|
-      format.html { redirect_to relations_url, notice: 'Relation was successfully destroyed.' }
+      format.html { redirect_to relations_url, notice: 'Связь успешно удалена.' }
       format.json { head :no_content }
     end
   end

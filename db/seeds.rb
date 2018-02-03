@@ -23,7 +23,7 @@ Worker.destroy_all; Contract.destroy_all; Category.destroy_all; Unit.destroy_all
 n = 10
 for i in 0 ... n
   Contract.create(number_c: "number" + i.to_s , d_conclusion_c: Date.today, d_expiration_c: Date.today , stavka: "1." + i.to_s  , vocation_c: "vocation_days" + i.to_s  , special_conditions: "spec" + i.to_s )
-  Worker.create(l_name: "l_name" + i.to_s, f_name: "f_name" + i.to_s, s_name: "s_name" + i.to_s, inn: "inn12345678" + i.to_s, passport: "passp1234" + i.to_s, snils: "snils12345" + i.to_s, d_bday: Date.today)
+  Worker.create(l_name: "l_name" + i.to_s, f_name: "f_name" + i.to_s, s_name: "s_name" + i.to_s, inn: "inn12345678" + i.to_s, passport: "passp1234" + i.to_s, snils: "snils12345" + i.to_s, d_bday: Date.today )
   Category.create(name_c: "name_c" + i.to_s, full_name_c: "full_name_c" + i.to_s, d_vocation_c: "vocation_days" + i.to_s)
   Unit.create(name_u: "name_u" + i.to_s, full_name_u: "full_name_u" + i.to_s)
   Post.create(name_p: "name_p" + i.to_s, full_name_p: "full_name_p" + i.to_s)

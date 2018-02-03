@@ -1,11 +1,13 @@
-%h1 Listing posts
+%h1 Должности
 
-%table
+= link_to 'Добавить должность', new_post_path, class: "btn btn-warning"
+
+%table.table
   %thead
     %tr
-      %th Name p
-      %th Full name p
-      %th Category
+      %th Краткое наименование должности
+      %th Полное наименование должности
+      %th Категория
       %th
       %th
       %th
@@ -16,10 +18,8 @@
         %td= post.name_p
         %td= post.full_name_p
         %td= post.category
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Показать', post, class: "btn btn-warning"
+        %td= link_to 'Редактировать', edit_category_path(post), class: "btn btn-default "
+        %td= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Post', new_post_path
