@@ -90,6 +90,21 @@ class CalendarsController < ApplicationController
 
     i+=1
     end
+    @year = params.has_key?(:year) ? params[:year].to_i : 2017
+    @calendars = (Calendar.where(year_c: @year).order(:date_c).all)
+    @hash = Hash.new{ |h, k| h[k] = [] }
+    @vocations = Vocation.where("extract(year from d_conclusion_v) = :year OR extract(year from d_expiration_v ) = :year", year: @year).all
+    @days = []
+    @vocations.map{ |v|
+      for i in v.d_conclusion_v..v.d_expiration_v
+        @days << i
+      end
+    }
+    @days.uniq!
+    @calendars.each do |s|
+      @hash[s.date_c.month] << s
+    end
+    render(:index_for_user)
   end
     # @vocation_days = 28
     # (params[:day]).each do |key, value|

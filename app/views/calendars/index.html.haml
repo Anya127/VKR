@@ -3,12 +3,16 @@
     Производственный календарь
     .pull-right
       = submit_tag 'Сохранить', class: 'btn btn-primary btn-lg'
+      = submit_tag 'Импорт из внешних источников', class: 'btn btn-primary btn-lg'
     .clearfix
+  %h4
+    Пятидневная рабочая неделя
   %br
   - @hash.each do |month, days|
     .box450.my_vertical_align
       %div
-        = month_names[month]
+        %span.label.label-warning.label-lg
+          = month_names[month]
         -flag = 1
       %div
         - day = days.first
@@ -18,9 +22,11 @@
           -when 0
             -6.times do
               %span.box50.cal-field-empty
+                = link_to(1, ?#, class: 'btn day_empty day_btn')
           -when 1..6
             -(wdayy-1).times do
               %span.box50.cal-field-empty
+                = link_to(1, ?#, class: 'btn day_empty day_btn')
         - days.each do |day|
           %span.box50.buttons-hover.cal-field
             - if day.is_output == true

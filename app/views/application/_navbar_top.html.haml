@@ -12,6 +12,11 @@
         %span.icon-bar
         %span.icon-bar
     %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse#bs-example-navbar-collapse-1
+      - if @current_user_object.worker.present?
+        %li
+          = link_to(?#) do
+            %b
+              =@current_user_object.worker.full_name
       %li
         = link_to login_path do
           = @current_user_object.blank? ? 'войти' : @current_user_object.email

@@ -32,6 +32,8 @@ module SideBarHelper
         :children => [
        {:name => 'Договоры', :controller => :contracts,
         :action => :index,  :icon => 'file-text-o'},
+       {:name => 'Добавление договора', :controller => :contracts,
+        :action => :new, :icon => 'edit'},
        {:name => 'Категории', :controller => :categories,
         :action => :index, :icon => 'list-alt '},
        {:name => 'Подразделения', :controller => :units,
@@ -42,9 +44,9 @@ module SideBarHelper
         :icon => 'check-square',
         :children => [
        {:name => 'Календарь', :controller => :calendars,
-        :action => :index,  :icon => 'calendar-o'},
+        :action => :index,  :icon => 'calendar-o', params: {year: Date.today().year}},
        {:name => 'Выбор отпуска', :controller => :calendars,
-        :action => :index_for_user,  :icon => 'calendar-plus-o'}
+        :action => :index_for_user,  :icon => 'calendar-plus-o', params: {year: Date.today().year}}
      ]}
    else
      if ru.is_operator?
@@ -61,9 +63,9 @@ module SideBarHelper
          :icon => 'check-square',
          :children => [
         {:name => 'Календарь', :controller => :calendars,
-         :action => :index,  :icon => 'calendar-o'},
+         :action => :index,  :icon => 'calendar-o', params: {year: Date.today().year}},
         {:name => 'Выбор отпуска', :controller => :calendars,
-         :action => :index_for_user,  :icon => 'calendar-plus-o'}
+         :action => :index_for_user,  :icon => 'calendar-plus-o', params: {year: Date.today().year}}
       ]}
   end
  end

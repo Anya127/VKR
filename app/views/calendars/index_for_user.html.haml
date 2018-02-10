@@ -1,39 +1,16 @@
 = form_tag index_for_user_commit_calendars_path() do
   = hidden_field_tag(:user_id, @current_user_object.id)
-  %h1 Календарь для выбора периода отпуска
-  %h2
-    = submit_tag 'Готово'
+  = hidden_field_tag(:year, @year)
+  %h1
+    Календарь для выбора периода отпуска
+    .pull-right
+      = submit_tag 'Сохранить', class: 'btn btn-primary btn-lg'
+    .clearfix
   %br
-  .btn.btn-info
-    =@vocation_days
   - @hash.each do |month, days|
     .box450.my_vertical_align
       %div
-        -case month
-        -when 1
-          Январь
-        -when 2
-          Февраль
-        -when  3
-          Март
-        -when  4
-          Апрель
-        -when  5
-          Май
-        -when  6
-          Июнь
-        -when 7
-          Июль
-        -when 8
-          Август
-        -when 9
-          Сентябрь
-        -when  10
-          Октябрь
-        -when  11
-          Ноябрь
-        -when  12
-          Декабрь
+        = month_names[month]
         -flag = 1
       %div
         - day = days.first
@@ -42,14 +19,17 @@
           -case (wdayy = day.date_c.wday)
           -when 0
             -6.times do
-              %span.box50
+              %span.box50.cal-field-empty
           -when 1..6
             -(wdayy-1).times do
-              %span.box50
+              %span.box50.cal-field-empty
         - days.each do |day|
-          %span.box50.buttons-hover
+          %span.box50.buttons-hover.cal-field
             -# - raise [@days.inspect
-            - if @days.include?(day.date_c)
+            - if @days.include?(day.date_c) and day.is_output == true
+              = link_to(day.date_c.day, day, class: 'btn vocations_color weekends_color day_btn2')
+              =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
+            - elsif @days.include?(day.date_c)
               = link_to(day.date_c.day, day, class: 'btn vocations_color day_btn')
               =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
             - elsif day.is_output == true
