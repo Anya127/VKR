@@ -12,7 +12,7 @@
         %span.icon-bar
         %span.icon-bar
     %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse#bs-example-navbar-collapse-1
-      - if @current_user_object.worker.present?
+      - if @current_user_object.present? and @current_user_object.worker.present?
         %li
           = link_to(?#) do
             %b

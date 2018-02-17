@@ -10,7 +10,8 @@
   - @hash.each do |month, days|
     .box450.my_vertical_align
       %div
-        = month_names[month]
+        %span.label.label-warning.label-lg
+          = month_names[month]
         -flag = 1
       %div
         - day = days.first
@@ -30,7 +31,7 @@
               = link_to(day.date_c.day, day, class: 'btn vocations_color weekends_color day_btn2')
               =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
             - elsif @days.include?(day.date_c)
-              = link_to(day.date_c.day, day, class: 'btn vocations_color day_btn')
+              = link_to(day.date_c.day, day, class: 'btn vocations_color day_btn2')
               =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
             - elsif day.is_output == true
               = link_to(day.date_c.day, day, class: 'btn weekends_color day_btn2')
