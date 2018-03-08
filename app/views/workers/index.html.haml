@@ -2,32 +2,60 @@
 
 = link_to 'Добавить сотрудника', new_worker_path, class: "btn btn-warning"
 
-%table.table
-  %thead
-    %tr
-      %th Фамилия
-      %th Имя
-      %th Отчество
-      %th ИНН
-      %th Серия и номер паспорта
-      %th СНИЛС
-      %th Дата Рождения
+= form_tag do
+  %table.table.table-hover.table-condensed
+    %thead
+      %tr.noborder-bottom
+        %th.tbl-width65.text-center
+          Фамилия
+        %th.tbl-width65.text-center
+          Имя
+        %th.tbl-width65.text-center
+          Отчество
+        %th.tbl-width65.text-center
+          ИНН
+        %th.tbl-width65.text-center
+          Серия и номер паспорта
+        %th.tbl-width65.text-center
+          СНИЛС
+        %th.tbl-width65.text-center
+          Дата Рождения
       %th
       %th
       %th
 
-  %tbody
-    - @workers.each do |worker|
-      %tr
-        %td= worker.l_name
-        %td= worker.f_name
-        %td= worker.s_name
-        %td= worker.inn
-        %td= worker.passport
-        %td= worker.snils
-        %td= worker.d_bday
-        %td= link_to 'Показать', worker, class: "btn btn-warning"
-        %td= link_to 'Редактировать', edit_worker_path(worker), class: "btn btn-default "
-        %td= link_to 'Удалить', worker, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
+      %tr.noborder-top
+        %th.tbl-width65.text-center
+          .form-group
+            .input-group
+              = number_field :l_name, '', class: 'form-control'
+              %span.input-group-addon
+                %span
+                  = link_to fa_icon :search, class: 'fa-fw'
+        %th.tbl-width65.text-center
+        %th.tbl-width65.text-center
+          .form-group
+            .input-group
+              = number_field :inn, '', class: 'form-control'
+              %span.input-group-addon
+                %span
+                  = link_to fa_icon :search, class: 'fa-fw'
+        %th.tbl-width65.text-center
+        %th.tbl-width65.text-center
+        %th.tbl-width65.text-center
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @workers.each do |worker|
+        %td.tbl-width65.text-center= worker.l_name
+        %td.tbl-width65.text-center= worker.f_name
+        %td.tbl-width65.text-center= worker.s_name
+        %td.tbl-width65.text-center= worker.inn
+        %td.tbl-width65.text-center= worker.passport
+        %td.tbl-width65.text-center= worker.snils
+        %td.tbl-width65.text-center= worker.d_bday
+        %td= link_to 'Персональные данные', worker, class: "btn btn-warning"
+
+  %br

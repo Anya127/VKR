@@ -6,7 +6,9 @@ class VocationsController < ApplicationController
   def index
     @vocations = Vocation.all
   end
-
+  def index_for_user
+    @vocations = Vocation.all
+  end
   # GET /vocations/1
   # GET /vocations/1.json
   def show

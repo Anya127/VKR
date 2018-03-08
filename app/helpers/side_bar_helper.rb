@@ -65,7 +65,9 @@ module SideBarHelper
         {:name => 'Календарь', :controller => :calendars,
          :action => :index,  :icon => 'calendar-o', params: {year: Date.today().year}},
         {:name => 'Выбор отпуска', :controller => :calendars,
-         :action => :index_for_user,  :icon => 'calendar-plus-o', params: {year: Date.today().year}}
+         :action => :index_for_user,  :icon => 'calendar-plus-o', params: {year: Date.today().year}},
+        {:name => 'Предыдущие года', :controller => :calendars,
+         :action => :index,  :icon => 'calendar-check-o', params: {year: Date.today().year}}
       ]}
   end
  end
