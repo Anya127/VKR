@@ -1,61 +1,78 @@
 %h1 Сотрудники
 
-= link_to 'Добавить сотрудника', new_worker_path, class: "btn btn-warning"
+= link_to 'Актуализировать информацию о сотрудниках', new_worker_path, class: "btn btn-default"
 
 = form_tag do
   %table.table.table-hover.table-condensed
     %thead
       %tr.noborder-bottom
+        %th.tbl-width5.text-center
+          №
         %th.tbl-width65.text-center
           Фамилия
-        %th.tbl-width65.text-center
           Имя
-        %th.tbl-width65.text-center
           Отчество
         %th.tbl-width65.text-center
-          ИНН
+          Подразделение
         %th.tbl-width65.text-center
-          Серия и номер паспорта
+          Должность
         %th.tbl-width65.text-center
-          СНИЛС
-        %th.tbl-width65.text-center
-          Дата Рождения
+          Количество дней отпуска
       %th
       %th
       %th
 
       %tr.noborder-top
+        %th.tbl-width5.text-center
         %th.tbl-width65.text-center
           .form-group
             .input-group
-              = number_field :l_name, '', class: 'form-control'
+              = text_field :l_name, '', class: 'form-control', placeholder: 'Часть ФИО'
               %span.input-group-addon
                 %span
                   = link_to fa_icon :search, class: 'fa-fw'
         %th.tbl-width65.text-center
-        %th.tbl-width65.text-center
           .form-group
             .input-group
-              = number_field :inn, '', class: 'form-control'
+              = text_field :l_name, '', class: 'form-control', placeholder: 'Подразделение'
               %span.input-group-addon
                 %span
                   = link_to fa_icon :search, class: 'fa-fw'
         %th.tbl-width65.text-center
+          .form-group
+            .input-group
+              = text_field :l_name, '', class: 'form-control', placeholder: 'Должность'
+              %span.input-group-addon
+                %span
+                  = link_to fa_icon :search, class: 'fa-fw'
         %th.tbl-width65.text-center
-        %th.tbl-width65.text-center
+          .form-group
+            .input-group
+              = text_field :l_name, '', class: 'form-control', placeholder: 'Кол-во дней'
+              %span.input-group-addon
+                %span
+                  = link_to fa_icon :search, class: 'fa-fw'
         %th
         %th
         %th
 
     %tbody
-      - @workers.each do |worker|
-        %td.tbl-width65.text-center= worker.l_name
-        %td.tbl-width65.text-center= worker.f_name
-        %td.tbl-width65.text-center= worker.s_name
-        %td.tbl-width65.text-center= worker.inn
-        %td.tbl-width65.text-center= worker.passport
-        %td.tbl-width65.text-center= worker.snils
-        %td.tbl-width65.text-center= worker.d_bday
-        %td= link_to 'Персональные данные', worker, class: "btn btn-warning"
+      - @workers.each_with_index do |worker, l|
+        %tr
+          %td.tbl-width5.text-center
+            =succeed '.' do
+              =l+1
+          %td.tbl-width65
+            = worker.l_name
+            = worker.f_name
+            = worker.s_name
+          %td.tbl-width65.text-center= worker.contracts.try(:first).try(:relation).try(:unit).try(:full_name_u)
+          %td.tbl-width65.text-center= worker.contracts.try(:first).try(:relation).try(:post).try(:full_name_p)
+          %td.tbl-width65.text-center= worker.contracts.try(:first).try(:relation).try(:d_vocation_pu)
+
+
+          %td= link_to 'Персональные данные', worker, class: "btn btn-default"
+          %td= link_to 'Проверить отпуска', worker, class: "btn btn-warning"
+
 
   %br

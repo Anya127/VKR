@@ -2,7 +2,9 @@
   = hidden_field_tag(:user_id, @current_user_object.id)
   = hidden_field_tag(:year, @year)
   %h1
-    Календарь для выбора периода отпуска
+    Выбор периода отпуска
+  %h2
+    Кузнецов Павел Робертович(подразделение, должность)
     .pull-right
       = submit_tag 'Сохранить', class: 'btn btn-primary btn-lg'
     .clearfix
