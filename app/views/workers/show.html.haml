@@ -1,26 +1,53 @@
-%p#notice= notice
 
-%p
-  %b Фамилия:
+%h1
   = @worker.l_name
-%p
-  %b Имя:
   = @worker.f_name
-%p
-  %b Отчество:
   = @worker.s_name
-%p
-  %b ИНН:
-  = @worker.inn
-%p
-  %b Серия и номер паспорта:
-  = @worker.passport
-%p
-  %b СНИЛС:
-  = @worker.snils
-%p
-  %b Дата Рождения:
-  = @worker.d_bday
+.row
+  .label.label-primary.sqlabel
+    .big
+      = @worker.d_bday
+    .tiny
+      = Worker.human_attribute_name(:"День рождения")
+  .label.label-danger.sqlabel
+    .big
+      = @worker.inn
+    .tiny
+      = Worker.human_attribute_name(:ИНН)
+  .label.label-success.sqlabel
+    .big
+      = @worker.passport
+    .tiny
+      = Worker.human_attribute_name(:Паспорт)
+  .label.label-warning.sqlabel
+    .big
+      = @worker.snils
+    .tiny
+      = Worker.human_attribute_name(:СНИЛС)
+
+
+%br
+
+%h2
+  Отпуска
+  .pull-right{style: "padding-top: 1rem"}
+    = link_to 'Добавить информацию об отпусках', new_worker_path, class: "btn btn-primary"
+  .clearfix
+%table.table
+  %thead
+    %tr
+      %th Год
+      %th Подразделение
+      %th Должность
+      %th Год
+      %th Дата начала
+      %th Дата окончания
+      %th
+      %th
+      %th
+
+
+
 
 = link_to 'Редактирование', edit_worker_path(@worker), class: "btn btn-default"
 \|
