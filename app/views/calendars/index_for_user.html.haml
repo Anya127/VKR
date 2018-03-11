@@ -3,16 +3,32 @@
   = hidden_field_tag(:year, @year)
   %h1
     Выбор периода отпуска
-  %h2
-    Кузнецов Павел Робертович(подразделение, должность)
     .pull-right
-      = submit_tag 'Сохранить', class: 'btn btn-primary btn-lg'
+      = submit_tag 'Сохранить', class: 'btn btn-warning btn-sm'
+      = submit_tag 'Отправить на проверку', class: 'btn btn-success btn-sm'
+      = submit_tag 'Печать', class: 'btn btn-default btn-sm'
     .clearfix
-  %h4
-    Пятидневная рабочая неделя
-  %h5
-    Отпуск: 28 календарных дней
+  %h2
+    Петров Константин Ярославович
+.row
+  .label.label-primary.sqlabel
+    .big
+      = "Отдел по развитию производственной системы"
+    .tiny
+      = Worker.human_attribute_name(:Подразделение)
+  .label.label-success.sqlabel
+    .big
+      = "Менеджер по развитию"
+    .tiny
+      = Worker.human_attribute_name(:Должность)
+  .label.label-warning.sqlabel
+    .big
+      = "28"
+    .tiny
+      = Worker.human_attribute_name(:"Кол-во дней отпуска")
   %br
+
+
   - @hash.each do |month, days|
     .box450.my_vertical_align
       %div
