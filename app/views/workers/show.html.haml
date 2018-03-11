@@ -6,7 +6,7 @@
   = @worker.s_name
 %h1
 .row
-  .label.label-primary.sqlabel
+  .label.label-default.sqlabel
     .big
       = @worker.contracts.try(:first).try(:relation).try(:unit).try(:full_name_u)
     .tiny
@@ -28,7 +28,7 @@
 %h2
   Прошедшие отпуска
   .pull-right{style: "padding-top: 1rem"}
-    = link_to 'Планировать отпуск', new_worker_path, class: "btn-info btn-sm"
+    = link_to 'Планировать отпуск', new_worker_path, class: "btn-success btn-lg"
   .clearfix
 
 %table.table.table-hover.table-condensed
