@@ -13,8 +13,12 @@ for i in 0 ... n
   r = Relation.create(d_vocation_pu: voc[i].to_s, post_id: s.id, unit_id: u.id)
   w = Worker.create(l_name: a[i].to_s, f_name: b[i].to_s, s_name: d[i].to_s, inn: "inn12345678" + i.to_s, passport: "passp1234" + i.to_s, snils: "snils12345" + i.to_s, d_bday: Date.today )
   t = Contract.create(number_c: "number" + i.to_s , d_conclusion_c: Date.today, d_expiration_c: Date.today , stavka: "1." + i.to_s  , vocation_c: "vocation_days" + i.to_s  , special_conditions: "spec" + i.to_s, worker_id: w.id, relation_id: r.id)
-  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today, d_expiration_v: Date.today, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
-
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-1065.days, d_expiration_v: Date.today-1053.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-765.days, d_expiration_v: Date.today-753.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-565.days, d_expiration_v: Date.today-553.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-365.days, d_expiration_v: Date.today-353.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-265.days, d_expiration_v: Date.today-253.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
+  v = Vocation.create(type_v: "1" + i.to_s, d_conclusion_v: Date.today-35.days, d_expiration_v: Date.today-27.days, is_real: "true", order_date: Date.today, order_number: "order_number " + i.to_s, contract_id: t.id)
 end
 
 if (u1 = User.find_by_email('admin@localhost')).nil?

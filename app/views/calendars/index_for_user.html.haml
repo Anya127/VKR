@@ -9,7 +9,7 @@
       = submit_tag 'Печать', class: 'btn btn-default btn-lg'
     .clearfix
   %h2
-    Петров Александр Александрович 
+    Смирнов Михаил Александрович
 .row
   .label.label-default.sqlabel
     .big
@@ -27,7 +27,6 @@
     .tiny
       = Worker.human_attribute_name(:"Кол-во дней отпуска")
   %br
-
 
   - @hash.each do |month, days|
     .box450.my_vertical_align

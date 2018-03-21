@@ -28,25 +28,29 @@
 %h2
   Прошедшие отпуска
   .pull-right{style: "padding-top: 1rem"}
-    = link_to 'Планировать отпуск', new_worker_path, class: "btn-success btn-lg"
+    = link_to 'Планировать отпуск', new_worker_path, class: "btn btn-success btn-lg"
   .clearfix
+- if @worker.contracts.size >0
+  %table.table.table-hover.table-condensed
+    %thead
+      %tr
+        %th Год
+        %th Подразделение
+        %th Должность
+        %th Дата начала
+        %th Дата окончания
+    %tbody
+      - @worker.contracts.each do |c|
+        - c.vocations.each do |vocation|
+          %tr
+            %td.text-center= vocation.d_conclusion_v.year
+            %td.text-center= c.try(:relation).try(:unit).try(:full_name_u)
+            %td.text-center= c.try(:relation).try(:post).try(:full_name_p)
+            %td.text-center= vocation.d_conclusion_v
+            %td.text-center= vocation.d_expiration_v
 
-%table.table.table-hover.table-condensed
-  %thead
-    %tr
-      %th Год
-      %th Подразделение
-      %th Должность
-      %th Год
-      %th Дата начала
-      %th Дата окончания
-      %th
-      %th
-      %th
 
 
-
-
-= link_to 'Редактирование', edit_worker_path(@worker), class: "btn btn-default"
-\|
-= link_to 'Назад', workers_path,   class: "btn btn-warning"
+  = link_to 'Редактирование', edit_worker_path(@worker), class: "btn btn-default"
+  \|
+  = link_to 'Назад', workers_path,   class: "btn btn-warning"
