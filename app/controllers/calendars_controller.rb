@@ -32,6 +32,23 @@ class CalendarsController < ApplicationController
 
   end
 
+  def index_for_operator
+    @year = params.has_key?(:year) ? params[:year].to_i : 2017
+    @calendars = (Calendar.where(year_c: @year).order(:date_c).all)
+    @hash = Hash.new{ |h, k| h[k] = [] }
+    @vocations = Vocation.where("extract(year from d_conclusion_v) = :year OR extract(year from d_expiration_v ) = :year", year: @year).all
+    @days = []
+    @vocations.map{ |v|
+      for i in v.d_conclusion_v..v.d_expiration_v
+        @days << i
+      end
+    }
+    @days.uniq!
+    @calendars.each do |s|
+      @hash[s.date_c.month] << s
+    end
+
+  end
 
   # GET /calendars/1
   # GET /calendars/1.json
@@ -52,6 +69,63 @@ class CalendarsController < ApplicationController
   end
 
   def index_for_user_commit
+    y = User.find(params[:user_id])
+    c = y.worker.contracts.first  # Выбрать текущий, а не первый контракт
+    Vocation.where(contract_id: c.id).delete_all
+    date_start = nil
+    date_finish = nil
+   i=0
+    days = (params[:day])
+    flag = 0
+
+    days.each do |key, value|
+      obj= Calendar.find(key)
+
+      #  raise ((obj.date_c).class).inspect
+      if (value=="1")
+        if (flag==1)
+         date_start = obj.date_c
+
+        else
+          flag = 1
+          date_start = obj.date_c
+          date_finish = obj.date_c
+
+        end
+       else
+           if (flag==1)
+             flag = 0
+              # raise  date_finish.inspect
+             x =  Vocation.create(type_v: "1" + i.to_s,
+               d_conclusion_v: date_start, d_expiration_v: date_finish,
+               is_real: "false", order_date: Date.today,
+               order_number: "order_number " + i.to_s, contract_id: c.id)
+           end
+           i+=1
+
+       end
+
+    i+=1
+    end
+    @year = params.has_key?(:year) ? params[:year].to_i : 2017
+    @calendars = (Calendar.where(year_c: @year).order(:date_c).all)
+    @hash = Hash.new{ |h, k| h[k] = [] }
+    @vocations = Vocation.where("extract(year from d_conclusion_v) = :year OR extract(year from d_expiration_v ) = :year", year: @year).all
+    @days = []
+    @vocations.map{ |v|
+      for i in v.d_conclusion_v..v.d_expiration_v
+        @days << i
+      end
+    }
+    @days.uniq!
+    @calendars.each do |s|
+      @hash[s.date_c.month] << s
+    end
+    render(:index_for_user)
+  end
+
+
+  def index_for_operator_commit
     y = User.find(params[:user_id])
     c = y.worker.contracts.first  # Выбрать текущий, а не первый контракт
     Vocation.where(contract_id: c.id).delete_all

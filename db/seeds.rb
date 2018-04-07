@@ -33,6 +33,12 @@ if (u2 = User.find_by_email('user@localhost')).nil?
   u2.worker=Worker.last
   u2.save
 end
-r1, r2 = Role.create_main_roles
+if (u3 = User.find_by_email('operator@localhost')).nil?
+  u3 = User.create!(password: 'qwerty', password_confirmation: 'qwerty',
+    email: 'operator@localhost')
+  u3.activate!
+end
+r1, r2, r3 = Role.create_main_roles
 ru1 = RoleUser.create(role: r1, user: u1)
 ru2 = RoleUser.create(role: r2, user: u2)
+ru3 = RoleUser.create(role: r3, user: u3)

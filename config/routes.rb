@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :calendars do
     collection do
       get :index_for_user, as: :index_for_user
+      get :index_for_operator, as: :index_for_operator
       post :index_commit, as: :index_commit
       post :index_for_user_commit, as: :index_for_user_commit
+      post :index_for_operator_commit, as: :index_for_operator_commit
     end
   end
   resources :vocations
