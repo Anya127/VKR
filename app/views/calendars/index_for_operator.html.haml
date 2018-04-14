@@ -1,3 +1,8 @@
+= form_tag index_for_user_commit_calendars_path(), class: :hide, id: :cancel_form do
+  %h2 Введите причину отклонения
+  = text_field_tag :cancel_reason, '', size: 80
+  = link_to(?#, class: 'btn btn-primary', id: 'cancel1_finish') do
+    = fa_icon 'arrow-right'
 = form_tag index_for_user_commit_calendars_path() do
   = hidden_field_tag(:user_id, @current_user_object.id)
   = hidden_field_tag(:year, @year)
@@ -5,6 +10,7 @@
     Выбор периода отпуска
     .pull-right
       = submit_tag 'Утвердить', class: 'btn btn-warning btn-lg'
+      = submit_tag 'Отклонить', class: 'btn btn-easydanger btn-lg', id: 'cancel1'
       = submit_tag 'Подготовить приказы', class: 'btn btn-success btn-lg'
       = submit_tag 'Печать', class: 'btn btn-default btn-lg'
     .clearfix
