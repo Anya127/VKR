@@ -7,13 +7,8 @@
   = hidden_field_tag(:user_id, @current_user_object.id)
   = hidden_field_tag(:year, @year)
   %h1
-    Выбор периода отпуска
-    .pull-right
-      = submit_tag 'Утвердить', class: 'btn btn-warning btn-lg'
-      = submit_tag 'Отклонить', class: 'btn btn-easydanger btn-lg', id: 'cancel1'
-      = submit_tag 'Подготовить приказы', class: 'btn btn-success btn-lg'
-      = submit_tag 'Печать', class: 'btn btn-default btn-lg'
-    .clearfix
+    Утверждение отпуска сотрудника
+
   %h2
     Смирнов Михаил Александрович
 .row
@@ -45,38 +40,58 @@
       С 24.02.2018 до 04.04.2018: 10 дней.
   %h2
     Коррекция
-
-  - @hash.each do |month, days|
-    .box450.my_vertical_align
-      %div
-        %span.label.label-warning.label-lg
-          = month_names[month]
-        -flag = 1
-      %div
-        - day = days.first
-        -if (flag== 1)
-          -(flag=0)
-          -case (wdayy = day.date_c.wday)
-          -when 0
-            -6.times do
-              %span.box50.cal-field-empty
-          -when 1..6
-            -(wdayy-1).times do
-              %span.box50.cal-field-empty
-        - days.each do |day|
-          %span.box50.buttons-hover.cal-field
-            -# - raise [@days.inspect
-            - if @days.include?(day.date_c) and day.is_output == true
-              = link_to(day.date_c.day, day, class: 'btn vocations_color weekends_color day_btn2')
-              =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
-            - elsif @days.include?(day.date_c)
-              = link_to(day.date_c.day, day, class: 'btn vocations_color day_btn2')
-              =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
-            - elsif day.is_output == true
-              = link_to(day.date_c.day, day, class: 'btn weekends_color day_btn2')
-              =hidden_field_tag "day[#{day.id}]", 0, class: 'day_hid'
-            - else
-              = link_to(day.date_c.day, day, class: 'btn day_btn2')
-              =hidden_field_tag "day[#{day.id}]", 0,  class: 'day_hid'
-          - if day.date_c.wday == 0
-            %br
+  .row
+    .col-md-9
+      - @hash.each do |month, days|
+        .box450.my_vertical_align
+          %div
+            %span.label.label-warning.label-lg
+              = month_names[month]
+            -flag = 1
+          %div
+            - day = days.first
+            -if (flag== 1)
+              -(flag=0)
+              -case (wdayy = day.date_c.wday)
+              -when 0
+                -6.times do
+                  %span.box50.cal-field-empty
+              -when 1..6
+                -(wdayy-1).times do
+                  %span.box50.cal-field-empty
+            - days.each do |day|
+              %span.box50.buttons-hover.cal-field
+                -# - raise [@days.inspect
+                - if @days.include?(day.date_c) and day.is_output == true
+                  = link_to(day.date_c.day, day, class: 'btn vocations_color weekends_color day_btn2')
+                  =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
+                - elsif @days.include?(day.date_c)
+                  = link_to(day.date_c.day, day, class: 'btn vocations_color day_btn2')
+                  =hidden_field_tag "day[#{day.id}]", 1, class: 'day_hid'
+                - elsif day.is_output == true
+                  = link_to(day.date_c.day, day, class: 'btn weekends_color day_btn2')
+                  =hidden_field_tag "day[#{day.id}]", 0, class: 'day_hid'
+                - else
+                  = link_to(day.date_c.day, day, class: 'btn day_btn2')
+                  =hidden_field_tag "day[#{day.id}]", 0,  class: 'day_hid'
+              - if day.date_c.wday == 0
+                %br
+    .col-md-3
+      = button_tag  class: 'btn btn-success btn-lg btn-fixed-size' do
+        = fa_icon :check
+        Утвердить
+      %br
+      = button_tag class: 'btn btn-easydanger btn-lg btn-fixed-size', id: 'cancel1' do
+        = fa_icon :times
+        Отклонить
+      %br
+      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+        = fa_icon :print
+        Печать уведомления
+      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+        = fa_icon :print
+        Печать заявления
+      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+        = fa_icon :print
+        Печать приказа
+    .clearfix
