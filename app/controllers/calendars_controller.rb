@@ -125,6 +125,22 @@ class CalendarsController < ApplicationController
   end
 
 
+  def zayavl
+    send_file('/home/lety/111/public/1.pdf', :type => 'application/pdf',
+      :disposition => 'inline', filename: 'qq.pdf')
+  end
+
+  def uved
+    send_file('/home/lety/111/public/2.pdf', :type => 'application/pdf',
+      :disposition => 'inline', filename: 'qq.pdf')
+  end
+
+  def prikaz
+    send_file('/home/lety/111/public/3.pdf', :type => 'application/pdf',
+      :disposition => 'inline', filename: 'qq.pdf')
+  end
+
+
   def index_for_operator_commit
     y = User.find(params[:user_id])
     c = y.worker.contracts.first  # Выбрать текущий, а не первый контракт

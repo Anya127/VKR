@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       post :index_commit, as: :index_commit
       post :index_for_user_commit, as: :index_for_user_commit
       post :index_for_operator_commit, as: :index_for_operator_commit
+      get :zayavl
+      get :uved
+      get :prikaz
     end
   end
   resources :vocations

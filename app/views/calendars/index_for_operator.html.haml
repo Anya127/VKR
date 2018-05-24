@@ -85,13 +85,13 @@
         = fa_icon :times
         Отклонить
       %br
-      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+      = link_to uved_calendars_path(format: :pdf), class: 'btn btn-default btn-lg btn-fixed-size' do
         = fa_icon :print
         Печать уведомления
-      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+      = link_to zayavl_calendars_path(format: :pdf),  class: 'btn btn-default btn-lg btn-fixed-size' do
         = fa_icon :print
         Печать заявления
-      = button_tag  class: 'btn btn-default btn-lg btn-fixed-size' do
+      = link_to prikaz_calendars_path(format: :pdf),  class: 'btn btn-default btn-lg btn-fixed-size' do
         = fa_icon :print
         Печать приказа
     .clearfix
